@@ -2,12 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Charles S. Levy | Portfolio</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Welcome to my Portfolio</h1>
-  <p>This is my first project website!</p>
+  <!-- Dark Mode Toggle -->
+  <div class="dark-mode-toggle">
+    <input type="checkbox" id="darkModeCheckbox">
+    <label for="darkModeCheckbox" class="toggle-label"></label>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <h1>Charles S. Levy</h1>
+    <p>
+      Boston, MA | (973) 493-6284 | 
+      <a href="mailto:clevy531@bu.edu">clevy531@bu.edu</a> | 
+      <a href="https://www.linkedin.com/in/charlessamsonlevy" target="_blank">LinkedIn</a>
+    </p>
+  </header>
+
+  <!-- Sections Buttons -->
+  <section id="sections-buttons">
+  <a href="education.html" class="section-button">Education</a>
+  <a href="projectsawards.html" class="section-button">Projects & Awards</a>
+  <a href="professionalexperience.html" class="section-button">Professional Experience</a>
+ </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <p>Python, Java, HTML, CSS, Git, Spreadsheets, Leadership, Customer Service</p>
+  </section>
+
+  <!-- Script -->
   <script src="script.js"></script>
 </body>
 </html>

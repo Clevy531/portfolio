@@ -1,6 +1,230 @@
+/* ---------- Reset & Base ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+  --bg-color: #f5f6fa;
+  --text-color: #2f3640;
+  --section-bg: #ffffff;
+  --accent-color: #40739e;
+  --link-hover: #1e3799;
+}
+
+body.dark-mode {
+  --bg-color: #1b263b;
+  --text-color: #dcdde1;
+  --section-bg: #2f3640;
+  --accent-color: #60a3bc;
+  --link-hover: #82ccdd;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  padding: 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* ---------- Header ---------- */
+header {
   text-align: center;
-  margin-top: 50px;
+  margin-bottom: 40px;
+}
+
+header h1 {
+  font-size: 2.5em;
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+header p a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+header p a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+/* ---------- Sections ---------- */
+section {
+  background-color: var(--section-bg);
+  padding: 25px 30px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  transition: background-color 0.3s;
+}
+
+section h2 {
+  color: var(--accent-color);
+  margin-bottom: 15px;
+  border-bottom: 2px solid var(--accent-color);
+  display: inline-block;
+  padding-bottom: 3px;
+}
+
+/* ---------- Lists ---------- */
+ul {
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+ul li {
+  margin-bottom: 8px;
+}
+
+/* ---------- Links & Buttons ---------- */
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: var(--link-hover);
+  text-decoration: none;
+}
+
+/* ---------- Back Button ---------- */
+.back-button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 20px 0;
+  background-color: var(--accent-color);
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.back-button:hover {
+  background-color: var(--link-hover);
+}
+
+/* ---------- Section Buttons (Home page) ---------- */
+#sections-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.section-button {
+  display: inline-block;
+  padding: 25px 50px;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: white;
+  background-color: var(--accent-color);
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+.section-button:hover {
+  background-color: var(--link-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* ---------- Dark Mode Toggle ---------- */
+.dark-mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.dark-mode-toggle input {
+  display: none;
+}
+
+.toggle-label {
+  display: block;
+  width: 60px;
+  height: 30px;
+  background: #ccc;
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.toggle-label::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.dark-mode-toggle input:checked + .toggle-label {
+  background: var(--accent-color);
+}
+
+.dark-mode-toggle input:checked + .toggle-label::after {
+  transform: translateX(30px);
+  background: var(--link-hover);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+  section {
+    padding: 20px;
+  }
+  .section-button {
+    padding: 20px 35px;
+    font-size: 1.3em;
+  }
+}
+
+/* ---------- Card Component ---------- */
+.card {
+  background-color: var(--section-bg);
+  padding: 20px 25px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Fix ONLY the big section buttons */
+.section-button {
+  color: white !important;
+  text-decoration: none !important;
+}
+
+.section-button:hover {
+  color: white !important;
+  text-decoration: none !important;
+  background-color: var(--link-hover) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Prevent purple highlight / focus ring */
+.section-button:focus,
+.section-button:active {
+  outline: none !important;
+  color: white !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
 }

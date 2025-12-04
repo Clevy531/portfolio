@@ -1,1 +1,6 @@
-console.log("Portfolio is live!");
+const toggleBtn = document.getElementById('darkModeCheckbox');
+
+toggleBtn.addEventListener('change', () => {
+  document.body.classList.toggle('dark-mode');
+});
+
