@@ -116,6 +116,7 @@ a:hover {
   margin-bottom: 40px;
 }
 
+/* Section Buttons */
 .section-button {
   display: inline-block;
   padding: 25px 50px;
@@ -126,14 +127,17 @@ a:hover {
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
+/* Hover effect: lift, glow, gradient background */
 .section-button:hover {
-  background-color: var(--link-hover);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  transform: translateY(-5px) scale(1.05); /* lifts and slightly grows */
+  box-shadow: 0 12px 25px rgba(0,0,0,0.3), 0 0 10px rgba(255, 255, 255, 0.2); /* 3D shadow + subtle glow */
+  background: linear-gradient(135deg, var(--accent-color), var(--link-hover)); /* gradient effect */
 }
+
+
 
 /* ---------- Dark Mode Toggle ---------- */
 .dark-mode-toggle {
@@ -229,3 +233,126 @@ a:hover {
   box-shadow: none !important;
 }
  
+/* Hero Section */
+#hero {
+  position: relative;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('images/BU.jpg') no-repeat top center;
+  background-size: cover;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  text-align: left;
+  animation: fadeInUp 1s ease forwards;
+}
+
+/* Headshot Styling */
+.hero-headshot {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  flex-shrink: 0;
+}
+
+/* Text next to headshot */
+.hero-text h1 {
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  color: white;
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-headshot {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+/* Skill Bars */
+.skill {
+  margin-bottom: 20px;
+}
+
+.skill-name {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-color);
+  font-size: 1.1rem;
+}
+
+.skill-bar {
+  width: 100%;
+  height: 25px;
+  background-color: #ddd;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.skill-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #40739e, #60a3bc);
+  border-radius: 15px;
+  transition: width 1.5s ease-in-out;
+  box-shadow: 0 0 10px rgba(96,163,188,0.5);
+}
+
+.card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
